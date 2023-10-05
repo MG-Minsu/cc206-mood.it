@@ -12,6 +12,7 @@ class LoginApp extends StatelessWidget {
     );
   }
 }
+<<<<<<< HEAD
 
 class LoginPage extends StatelessWidget {
   @override
@@ -54,3 +55,5 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
+=======
+>>>>>>> 107c728986aa0faa5398e0abf12c0b8b695ab638
