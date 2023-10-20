@@ -12,48 +12,66 @@ class LoginApp extends StatelessWidget {
     );
   }
 }
-<<<<<<< HEAD
 
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login Page'),
+        centerTitle: true,
+        title: const Text('Mood.it Login Page'),
       ),
       body: Center(
-        child: Padding(
-          padding: EdgeInsets.all(16.0),
+        child: Container (
+          height: 350,
+          width: 300,
+          margin: const EdgeInsets.symmetric(vertical: 100),
+          padding: const EdgeInsets.only(top: 90, left: 10, right: 10),
+          decoration: BoxDecoration(
+              color: Colors.grey.shade100,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.shade500,
+                  spreadRadius: 1,
+                  blurRadius: 10,
+                  offset: const Offset(0, 5)
+                )
+              ]
+            ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              TextField(
-                decoration: InputDecoration(
-                  hintText: 'username',
-                ),
-              ),
-              SizedBox(height: 16.0),
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: 'password',
-                ),
-              ),
-              SizedBox(height: 16.0),
-              ElevatedButton(
-                onPressed: () {
-                  // Add your login logic here
-                  // For simplicity, we're not handling authentication in this example.
-                  // You would typically validate the entered username and password.
-                },
-                child: Text('Login'),
-              ),
+            children: [
+              SizedBox (
+                width: 250,
+                child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: 'username',
+                    ),
+                  ),
+                  SizedBox(height: 16.0),
+                  TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      hintText: 'password',
+                    ),
+                  ),
+                  SizedBox(height: 16.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Add your login logic here
+                    },
+                    child: Text('Login'),
+                  ),
             ],
           ),
+            ),
+            ]           
+          ),
         ),
+        
       ),
     );
   }
 }
-=======
->>>>>>> 107c728986aa0faa5398e0abf12c0b8b695ab638
