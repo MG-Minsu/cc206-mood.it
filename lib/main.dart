@@ -1,6 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'components/features/log_in.dart';
+import 'package:cc206_moodit/components/features/home.dart';
+import 'components/features/home_drawer.dart';
+import 'components/features/addboard.dart';
 
 
 void main() {
@@ -31,18 +34,24 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 0, 0, 0)),
+
+      
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 255, 255, 255)),
+
         useMaterial3: true,
         
       ),
       
       home: const Scaffold(
+
         body: NewWidget(),
+
         drawer: MyDrawer(),
       ),
       
       debugShowCheckedModeBanner: false,
     );
+
   }
 }
 
@@ -54,5 +63,7 @@ class NewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LoginApp();
+
+
   }
 }
