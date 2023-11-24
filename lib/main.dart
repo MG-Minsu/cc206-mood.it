@@ -1,5 +1,10 @@
+import 'package:cc206_moodit/components/features/home.dart';
+
+import 'components/features/home_drawer.dart';
 import 'package:flutter/material.dart';
-import 'features/addboard.dart';
+import 'components/features/addboard.dart';
+
+
 void main() {
   runApp(const MyApp());
 }
@@ -11,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'mood.it',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -28,10 +33,17 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 255, 255, 255)),
         useMaterial3: true,
+        
       ),
-      home: const AddBoard(),
+      
+      home: const Scaffold(
+        body: MyHome(),
+        drawer: MyDrawer(),
+      ),
+      
+      debugShowCheckedModeBanner: false,
     );
   }
 }
