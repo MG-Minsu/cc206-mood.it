@@ -16,6 +16,7 @@ class DeleteBoard extends StatelessWidget {
           style: TextStyle(
             color: Colors.white,
             fontFamily: 'Jost',
+            fontWeight: FontWeight.bold,
             fontSize: 25,
           ),
           

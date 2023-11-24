@@ -249,6 +249,7 @@ class _HomeState extends State<MyHome> {
           style: TextStyle(
             color: Colors.white,
             fontFamily: 'Jost',
+            fontWeight: FontWeight.bold,
             fontSize: 25,
           ),
         ),
