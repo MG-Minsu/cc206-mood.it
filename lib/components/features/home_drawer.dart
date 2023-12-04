@@ -1,7 +1,5 @@
-import 'package:cc206_moodit/components/features/addboard.dart';
-import 'package:cc206_moodit/components/features/deleteboard.dart';
-import 'package:cc206_moodit/components/features/home.dart';
 import 'package:flutter/material.dart';
+import 'package:sqflite_database_example/components/features/log_in.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -32,20 +30,9 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
           ),
-          // Remove Divider
-          // Divider(
-          //   height: 0,
-          //   thickness: 0,
-          //   color: Colors.transparent,
-          // ),
           GestureDetector(
             onTap: () {
-              // Action when Message is pressed
               print('Go back Page');
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MyHome()),
-              );
             },
             child: ListTile(
               leading: Icon(Icons.home),
@@ -54,12 +41,7 @@ class MyDrawer extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              // Action when Message is pressed
               print('Next Page');
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const DeleteBoard()),
-              );
             },
             child: ListTile(
               leading: Icon(Icons.public),
@@ -68,20 +50,55 @@ class MyDrawer extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              // Action when Message is pressed
               print('Go back Page');
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const AddBoard()),
-              );
             },
             child: ListTile(
               leading: Icon(Icons.add_box),
               title: Text('Add Board'),
             ),
           ),
+          GestureDetector(
+            onTap: () {
+              _showLogoutConfirmationDialog(context);
+            },
+            child: ListTile(
+              leading: Icon(Icons.logout),
+              title: Text('Log Out'),
+            ),
+          ),
         ],
       ),
     );
   }
+
+void _showLogoutConfirmationDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text('Log Out', style: TextStyle(color: Colors.black)),
+        content: Text('Are you sure you want to log out?', style: TextStyle(color: Colors.black)),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop(); // Dismiss the dialog
+            },
+            child: Text('Cancel', style: TextStyle(color: Colors.black)),
+          ),
+          TextButton(
+            onPressed: () {
+              // Navigate to the LoginApp page and close the current page
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => LoginApp()),
+                (Route<dynamic> route) => false, // Pop all existing routes
+              );
+            },
+            child: Text('Log Out', style: TextStyle(color: Colors.black)),
+          ),
+        ],
+      );
+    },
+  );
+}
 }

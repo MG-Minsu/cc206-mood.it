@@ -1,6 +1,7 @@
-import 'package:cc206_moodit/components/features/home.dart';
-import 'package:cc206_moodit/components/features/AboutUs.dart';
+//import '/components/features/home.dart';
+import '/components/features/AboutUs.dart';
 import 'package:flutter/material.dart';
+import '/page/notes_page.dart';
 
 void main() {
   runApp(LoginApp());
@@ -129,11 +130,11 @@ class LoginPage extends StatelessWidget {
                         ElevatedButton(
                           onPressed: () {
                             // Validate the entered username and password
-                            if (_usernameController.text == 'helloizme' && _passwordController.text == 'helloizyou') {
+                            if (_usernameController.text == '1' && _passwordController.text == '1') {
                               // If credentials are correct, navigate to the home page
                               Navigator.pushReplacement(
                                 context,
-                                MaterialPageRoute(builder: (context) => const MyHome()),
+                                MaterialPageRoute(builder: (context) => const NotesPage()),
                               );
                             } else {
                               // If credentials are incorrect, you can show an error message or handle it as needed
@@ -173,19 +174,18 @@ class LoginPage extends StatelessWidget {
 }
 
 AppBar _buildAppBar() {
-    return AppBar(
-        toolbarHeight: 75.0,
-        centerTitle: true,
-        title: const Text(
-          "mood.it",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            fontFamily: 'Jost',
-            fontSize: 25,
-          ),
-        ),
-        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
-
-      );
-  }
+  return AppBar(
+    toolbarHeight: 75.0,
+    centerTitle: true,
+    title: const Text(
+      "mood.it",
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+        fontFamily: 'Jost',
+        fontSize: 25,
+      ),
+    ),
+    backgroundColor: const Color(0xFF9E8279), // Set the AppBar color to #9E8279
+  );
+}
