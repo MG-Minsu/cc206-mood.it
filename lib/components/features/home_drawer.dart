@@ -50,26 +50,6 @@ class MyDrawer extends StatelessWidget {
               title: Text('Home'), // Text label.
             ),
           ),
-          // GestureDetector for 'About Us' item.
-          GestureDetector(
-            onTap: () {
-              print('Next Page'); // Action on tap.
-            },
-            child: ListTile(
-              leading: Icon(Icons.public), // Icon for the item.
-              title: Text('About Us'), // Text label.
-            ),
-          ),
-          // GestureDetector for 'Add Board' item.
-          GestureDetector(
-            onTap: () {
-              print('Go back Page'); // Action on tap.
-            },
-            child: ListTile(
-              leading: Icon(Icons.add_box), // Icon for the item.
-              title: Text('Add Board'), // Text label.
-            ),
-          ),
           // GestureDetector for 'Log Out' item.
           GestureDetector(
             onTap: () {
