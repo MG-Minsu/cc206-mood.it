@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
 class NoteFormWidget extends StatelessWidget {
+  // Properties for the note details
   final bool? isImportant;
   final int? number;
   final String? title;
   final String? description;
+
+  // Callbacks to handle changes in the note details
   final ValueChanged<bool> onChangedImportant;
   final ValueChanged<int> onChangedNumber;
   final ValueChanged<String> onChangedTitle;
   final ValueChanged<String> onChangedDescription;
 
+  // Constructor for the NoteFormWidget
   const NoteFormWidget({
     Key? key,
     this.isImportant = false,
@@ -29,16 +33,19 @@ class NoteFormWidget extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              
+              // Title input field
               buildTitle(),
-              const SizedBox(height: 8),
+              const SizedBox(height: 8), // Spacer
+              
+              // Description input field
               buildDescription(),
-              const SizedBox(height: 16),
+              const SizedBox(height: 16), // Spacer
             ],
           ),
         ),
       );
 
+  // Widget for the title input field
   Widget buildTitle() => TextFormField(
         maxLines: 1,
         initialValue: title,
@@ -54,9 +61,10 @@ class NoteFormWidget extends StatelessWidget {
         ),
         validator: (title) =>
             title != null && title.isEmpty ? 'The title cannot be empty' : null,
-        onChanged: onChangedTitle,
+        onChanged: onChangedTitle, // Callback when the title changes
       );
 
+  // Widget for the description input field
   Widget buildDescription() => TextFormField(
         maxLines: 5,
         initialValue: description,
@@ -69,6 +77,6 @@ class NoteFormWidget extends StatelessWidget {
         validator: (title) => title != null && title.isEmpty
             ? 'The description cannot be empty'
             : null,
-        onChanged: onChangedDescription,
+        onChanged: onChangedDescription, // Callback when the description changes
       );
 }
