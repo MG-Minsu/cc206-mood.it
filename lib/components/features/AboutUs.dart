@@ -1,22 +1,32 @@
 import 'package:flutter/material.dart';
 
+// AboutUs is a StatelessWidget that displays information about the application and its developers.
 class AboutUs extends StatelessWidget {
-  // Declare a key parameter in your custom widget constructor
+  // Declare a key parameter in your custom widget constructor.
+  // Keys help Flutter framework in identifying widgets uniquely.
   final Key? key;
 
-  // Assign the key parameter to the super constructor using named parameters
+  // Assign the key parameter to the super constructor using named parameters.
+  // This is a common pattern for widgets with keys.
   const AboutUs({Key? key}) : this.key = key, super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // Scaffold provides a high-level structure for the about us screen.
     return Scaffold(
+      // AppBar displays a top bar with a title.
       appBar: AppBar(title: const Text('About Us')),
+      // The body of the scaffold contains the main content of the screen.
       body: Center(
+        // Container to hold the content in a centered box.
         child: Container(
           height: 350,
           width: 500,
+          // Margins for spacing around the container.
           margin: const EdgeInsets.symmetric(vertical: 10),
+          // Padding inside the container.
           padding: const EdgeInsets.only(left: 20, right: 20),
+          // Decoration for the container, including background color and box shadow.
           decoration: BoxDecoration(
             color: Colors.grey.shade100,
             boxShadow: [
@@ -28,11 +38,14 @@ class AboutUs extends StatelessWidget {
               )
             ],
           ),
+          // Column for vertical arrangement of widgets.
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // Padding widget for the title of the section.
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
+                // Text widget for displaying the title.
                 child: Text(
                   "What is Mood.it?",
                   textAlign: TextAlign.center,
@@ -44,7 +57,9 @@ class AboutUs extends StatelessWidget {
                   ),
                 ),
               ),
+              // SizedBox for spacing between widgets.
               SizedBox(height: 15),
+              // Padding and Text for the application description.
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Text(
@@ -58,6 +73,7 @@ class AboutUs extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 38),
+              // Padding and Text for the 'Developers' section.
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Text(
@@ -72,6 +88,7 @@ class AboutUs extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 15),
+              // Padding and Text for listing the developers' names.
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Text(
@@ -85,6 +102,7 @@ class AboutUs extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 5),
+              // Padding and Text for additional information about the developers.
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Text(

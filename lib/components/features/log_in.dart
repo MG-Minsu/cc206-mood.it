@@ -1,15 +1,16 @@
-//import '/components/features/home.dart';
-import '/components/features/AboutUs.dart';
 import 'package:flutter/material.dart';
+import '/components/features/AboutUs.dart';
 import '/page/notes_page.dart';
 
 void main() {
-  runApp(LoginApp());
+  runApp(LoginApp()); // Main entry point of the application.
 }
 
+// LoginApp is the root widget of the application.
 class LoginApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Define common text styles to be used across the app.
     final TextStyle bodyLarge = Theme.of(context).textTheme.bodyText1!.copyWith(
       fontSize: 16,
       fontWeight: FontWeight.normal,
@@ -20,7 +21,9 @@ class LoginApp extends StatelessWidget {
       fontWeight: FontWeight.bold,
     );
 
+    // MaterialApp is the root of the app's material design widgets.
     return MaterialApp(
+      // Define the theme for the application.
       theme: ThemeData(
         primaryColor: Color.fromARGB(255, 255, 255, 255),
         hintColor: Color.fromARGB(104, 248, 248, 248),
@@ -47,6 +50,7 @@ class LoginApp extends StatelessWidget {
           ),
         ),
       ),
+      // LoginPage is the first screen shown when the app starts.
       home: LoginPage(
         bodyLarge: bodyLarge,
         bodyLargeBold: bodyLargeBold,
@@ -55,23 +59,29 @@ class LoginApp extends StatelessWidget {
   }
 }
 
+// LoginPage widget represents the login screen of the app.
 class LoginPage extends StatelessWidget {
   final TextStyle bodyLarge;
   final TextStyle bodyLargeBold;
 
+  // Controllers to handle text input for username and password.
   final TextEditingController _usernameController = TextEditingController(); 
   final TextEditingController _passwordController = TextEditingController(); 
 
- LoginPage({Key? key, required this.bodyLarge, required this.bodyLargeBold}) : super(key: key);
+  // Constructor for LoginPage with required text styles.
+  LoginPage({Key? key, required this.bodyLarge, required this.bodyLargeBold}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // Scaffold provides the structure for the login page.
     return Scaffold(
-      appBar: _buildAppBar(), 
+      appBar: _buildAppBar(), // AppBar at the top of the page.
       body: Center(
+        // Center widget to align contents in the center.
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Container for the login form.
             Container(
               height: 350,
               width: 300,
@@ -91,23 +101,26 @@ class LoginPage extends StatelessWidget {
               ),
               child: Column(
                 children: [
+                  // Profile image container at the top of the form.
                   Container(
-  height: 80, // Adjust the height as needed
-  width: 80, // Adjust the width as needed
-  decoration: BoxDecoration(
-    shape: BoxShape.circle,
-    image: DecorationImage(
-      image: AssetImage('lib/components/assets/bg1.JPG'),
-      fit: BoxFit.cover,
-      alignment: Alignment.bottomCenter,
-    ),
-  ),
-),
+                    height: 80, // Adjust the height as needed
+                    width: 80, // Adjust the width as needed
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage('lib/components/assets/bg1.JPG'),
+                        fit: BoxFit.cover,
+                        alignment: Alignment.bottomCenter,
+                      ),
+                    ),
+                  ),
+                  // Column for input fields and login button.
                   SizedBox(
                     width: 250,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
+                        // TextField for username input.
                         TextField(
                           controller: _usernameController,
                           style: bodyLarge.copyWith(color: Color.fromARGB(255, 0, 0, 0)),
@@ -117,6 +130,7 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 16.0),
+                        // TextField for password input.
                         TextField(
                           controller: _passwordController,
                           style: bodyLarge.copyWith(color: Color.fromARGB(255, 0, 0, 0)),
@@ -127,18 +141,18 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 16.0),
+                        // Button to trigger login action.
                         ElevatedButton(
                           onPressed: () {
-                            // Validate the entered username and password
+                            // Logic to handle login validation.
                             if (_usernameController.text == '1' && _passwordController.text == '1') {
-                              // If credentials are correct, navigate to the home page
+                              // Navigate to the NotesPage if credentials are correct.
                               Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(builder: (context) => const NotesPage()),
                               );
                             } else {
-                              // If credentials are incorrect, you can show an error message or handle it as needed
-                              // For now, let's print a message to the console
+                              // Handle incorrect credentials (currently just a print statement).
                               print('Incorrect username or password');
                             }
                           },
@@ -154,6 +168,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
+            // Button to navigate to the AboutUs page.
             TextButton(
               onPressed: () {
                 Navigator.push(
@@ -173,6 +188,7 @@ class LoginPage extends StatelessWidget {
   }
 }
 
+// Function to build the AppBar widget.
 AppBar _buildAppBar() {
   return AppBar(
     toolbarHeight: 75.0,
